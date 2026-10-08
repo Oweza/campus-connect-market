@@ -16,7 +16,10 @@ import { Route as BulletinRouteImport } from './routes/bulletin'
 import { Route as MarketplaceRouteImport } from './routes/marketplace'
 import { Route as AuthenticatedCartRouteImport } from './routes/_authenticated/cart'
 import { Route as AuthenticatedCheckoutRouteImport } from './routes/_authenticated/checkout'
+import { Route as AuthenticatedNotificationsRouteImport } from './routes/_authenticated/notifications'
 import { Route as AuthenticatedOrdersRouteImport } from './routes/_authenticated/orders'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedSellRouteImport } from './routes/_authenticated/sell'
 import { Route as ProductsIdRouteImport } from './routes/products.$id'
 import { Route as SellersIdRouteImport } from './routes/sellers.$id'
 
@@ -54,9 +57,25 @@ const AuthenticatedCheckoutRoute = AuthenticatedCheckoutRouteImport.update({
   path: '/checkout',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedNotificationsRoute =
+  AuthenticatedNotificationsRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedOrdersRoute = AuthenticatedOrdersRouteImport.update({
   id: '/orders',
   path: '/orders',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSellRoute = AuthenticatedSellRouteImport.update({
+  id: '/sell',
+  path: '/sell',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const ProductsIdRoute = ProductsIdRouteImport.update({
@@ -77,7 +96,10 @@ export interface FileRoutesByFullPath {
   '/marketplace': typeof MarketplaceRoute
   '/cart': typeof AuthenticatedCartRoute
   '/checkout': typeof AuthenticatedCheckoutRoute
+  '/notifications': typeof AuthenticatedNotificationsRoute
   '/orders': typeof AuthenticatedOrdersRoute
+  '/profile': typeof AuthenticatedProfileRoute
+  '/sell': typeof AuthenticatedSellRoute
   '/products/$id': typeof ProductsIdRoute
   '/sellers/$id': typeof SellersIdRoute
 }
@@ -88,7 +110,10 @@ export interface FileRoutesByTo {
   '/marketplace': typeof MarketplaceRoute
   '/cart': typeof AuthenticatedCartRoute
   '/checkout': typeof AuthenticatedCheckoutRoute
+  '/notifications': typeof AuthenticatedNotificationsRoute
   '/orders': typeof AuthenticatedOrdersRoute
+  '/profile': typeof AuthenticatedProfileRoute
+  '/sell': typeof AuthenticatedSellRoute
   '/products/$id': typeof ProductsIdRoute
   '/sellers/$id': typeof SellersIdRoute
 }
@@ -101,7 +126,10 @@ export interface FileRoutesById {
   '/marketplace': typeof MarketplaceRoute
   '/_authenticated/cart': typeof AuthenticatedCartRoute
   '/_authenticated/checkout': typeof AuthenticatedCheckoutRoute
+  '/_authenticated/notifications': typeof AuthenticatedNotificationsRoute
   '/_authenticated/orders': typeof AuthenticatedOrdersRoute
+  '/_authenticated/profile': typeof AuthenticatedProfileRoute
+  '/_authenticated/sell': typeof AuthenticatedSellRoute
   '/products/$id': typeof ProductsIdRoute
   '/sellers/$id': typeof SellersIdRoute
 }
@@ -114,7 +142,10 @@ export interface FileRouteTypes {
     | '/marketplace'
     | '/cart'
     | '/checkout'
+    | '/notifications'
     | '/orders'
+    | '/profile'
+    | '/sell'
     | '/products/$id'
     | '/sellers/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -125,7 +156,10 @@ export interface FileRouteTypes {
     | '/marketplace'
     | '/cart'
     | '/checkout'
+    | '/notifications'
     | '/orders'
+    | '/profile'
+    | '/sell'
     | '/products/$id'
     | '/sellers/$id'
   id:
@@ -137,7 +171,10 @@ export interface FileRouteTypes {
     | '/marketplace'
     | '/_authenticated/cart'
     | '/_authenticated/checkout'
+    | '/_authenticated/notifications'
     | '/_authenticated/orders'
+    | '/_authenticated/profile'
+    | '/_authenticated/sell'
     | '/products/$id'
     | '/sellers/$id'
   fileRoutesById: FileRoutesById
@@ -203,11 +240,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCheckoutRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/notifications': {
+      id: '/_authenticated/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof AuthenticatedNotificationsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/orders': {
       id: '/_authenticated/orders'
       path: '/orders'
       fullPath: '/orders'
       preLoaderRoute: typeof AuthenticatedOrdersRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/sell': {
+      id: '/_authenticated/sell'
+      path: '/sell'
+      fullPath: '/sell'
+      preLoaderRoute: typeof AuthenticatedSellRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/products/$id': {
@@ -230,13 +288,19 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedCartRoute: typeof AuthenticatedCartRoute
   AuthenticatedCheckoutRoute: typeof AuthenticatedCheckoutRoute
+  AuthenticatedNotificationsRoute: typeof AuthenticatedNotificationsRoute
   AuthenticatedOrdersRoute: typeof AuthenticatedOrdersRoute
+  AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
+  AuthenticatedSellRoute: typeof AuthenticatedSellRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCartRoute: AuthenticatedCartRoute,
   AuthenticatedCheckoutRoute: AuthenticatedCheckoutRoute,
+  AuthenticatedNotificationsRoute: AuthenticatedNotificationsRoute,
   AuthenticatedOrdersRoute: AuthenticatedOrdersRoute,
+  AuthenticatedProfileRoute: AuthenticatedProfileRoute,
+  AuthenticatedSellRoute: AuthenticatedSellRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
