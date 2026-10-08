@@ -14,7 +14,7 @@ import { useAuth } from "@/lib/auth";
 import { errMsg } from "@/lib/format";
 
 export const Route = createFileRoute("/auth")({
-  validateSearch: (s: Record<string, unknown>) => ({
+  validateSearch: (s: Record<string, unknown>): { redirect?: string } => ({
     redirect: typeof s.redirect === "string" && s.redirect.startsWith("/") ? s.redirect : undefined,
   }),
   head: () => ({
