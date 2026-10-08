@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BulletinRouteImport } from './routes/bulletin'
 import { Route as MarketplaceRouteImport } from './routes/marketplace'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedCartRouteImport } from './routes/_authenticated/cart'
 import { Route as AuthenticatedCheckoutRouteImport } from './routes/_authenticated/checkout'
 import { Route as AuthenticatedNotificationsRouteImport } from './routes/_authenticated/notifications'
@@ -46,6 +47,11 @@ const MarketplaceRoute = MarketplaceRouteImport.update({
   id: '/marketplace',
   path: '/marketplace',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedCartRoute = AuthenticatedCartRouteImport.update({
   id: '/cart',
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/bulletin': typeof BulletinRoute
   '/marketplace': typeof MarketplaceRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/cart': typeof AuthenticatedCartRoute
   '/checkout': typeof AuthenticatedCheckoutRoute
   '/notifications': typeof AuthenticatedNotificationsRoute
@@ -108,6 +115,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/bulletin': typeof BulletinRoute
   '/marketplace': typeof MarketplaceRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/cart': typeof AuthenticatedCartRoute
   '/checkout': typeof AuthenticatedCheckoutRoute
   '/notifications': typeof AuthenticatedNotificationsRoute
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/bulletin': typeof BulletinRoute
   '/marketplace': typeof MarketplaceRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/cart': typeof AuthenticatedCartRoute
   '/_authenticated/checkout': typeof AuthenticatedCheckoutRoute
   '/_authenticated/notifications': typeof AuthenticatedNotificationsRoute
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/bulletin'
     | '/marketplace'
+    | '/admin'
     | '/cart'
     | '/checkout'
     | '/notifications'
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/bulletin'
     | '/marketplace'
+    | '/admin'
     | '/cart'
     | '/checkout'
     | '/notifications'
@@ -169,6 +180,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/bulletin'
     | '/marketplace'
+    | '/_authenticated/admin'
     | '/_authenticated/cart'
     | '/_authenticated/checkout'
     | '/_authenticated/notifications'
@@ -225,6 +237,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/marketplace'
       preLoaderRoute: typeof MarketplaceRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/cart': {
       id: '/_authenticated/cart'
@@ -286,6 +305,7 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
   AuthenticatedCartRoute: typeof AuthenticatedCartRoute
   AuthenticatedCheckoutRoute: typeof AuthenticatedCheckoutRoute
   AuthenticatedNotificationsRoute: typeof AuthenticatedNotificationsRoute
@@ -295,6 +315,7 @@ interface AuthenticatedRouteRouteChildren {
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
   AuthenticatedCartRoute: AuthenticatedCartRoute,
   AuthenticatedCheckoutRoute: AuthenticatedCheckoutRoute,
   AuthenticatedNotificationsRoute: AuthenticatedNotificationsRoute,
