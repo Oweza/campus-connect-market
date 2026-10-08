@@ -141,7 +141,7 @@ function Checkout() {
               <div className="space-y-1.5 sm:col-span-2"><Label>Name on card</Label><Input value={card.name} onChange={(e) => setCard({ ...card, name: e.target.value })} /></div>
               <div className="space-y-1.5"><Label>Expiry (MM/YY)</Label><Input placeholder="12/28" value={card.exp} onChange={(e) => { const v = e.target.value.replace(/[^\d]/g, "").slice(0, 4); setCard({ ...card, exp: v.length > 2 ? `${v.slice(0, 2)}/${v.slice(2)}` : v }); }} /></div>
               <div className="space-y-1.5"><Label>CVV</Label><Input inputMode="numeric" maxLength={4} value={card.cvv} onChange={(e) => setCard({ ...card, cvv: e.target.value.replace(/[^\d]/g, "") })} /></div>
-              <p className="text-xs text-muted-foreground sm:col-span-2">Test mode: use 4242 4242 4242 4242 for success, or 4000 0000 0000 0000 to simulate a decline. No real money is charged.</p>
+              <p className="text-xs text-muted-foreground sm:col-span-2">Test mode: use 4242 4242 4242 4242 for success, or 4000 0000 0002 0000 (any card ending 0000) to simulate a decline. No real money is charged.</p>
             </div>
           )}
           {method === "instant_eft" && (
