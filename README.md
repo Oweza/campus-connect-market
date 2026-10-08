@@ -1,46 +1,146 @@
-# Campus Connect Market
+# 🛍️ Community Store
+### Campus & Local Marketplace
 
-Build a fully functional, modern, mobile-friendly web application called Community Store – Campus & Local Marketplace, based in District 6, Cape Town.  It connect students, faculty, residents and local vendors so they can buy, sell and trade goods/services in a more structured and trusted environment
+**Community Store** is a mobile-friendly digital marketplace designed to connect students, faculty members, local vendors, and residents around the District 6 campus community in Cape Town, South Africa.
 
-Use Supabase for the database, authentication, storage and backend.
+The platform provides a convenient and secure environment for buying and selling products, communicating with sellers, discovering community announcements, and supporting local businesses.
 
-The application must include:
+## 🎯 Project Objectives
 
-User Accounts: Registration, login, logout and profiles for Students, Faculty, Vendors, Residents and Admins.
+- Provide an affordable and accessible marketplace for students and the local community.
+- Support small businesses and local vendors.
+- Encourage sustainability through buying and selling second-hand products.
+- Improve trust through vendor verification, user reviews, and reporting.
+- Enable convenient communication between buyers and sellers.
 
-Marketplace: Product listings with images, prices in Rands, categories, search and filters.
+## ✨ Features
 
-Selling: Vendors can add, edit and delete products.
+### 👤 User Authentication
+- Email and Google sign-in
+- Student, Faculty, Resident, and Vendor accounts
+- User profiles and profile pictures
+- Role-based access control
 
-Shopping: Working cart, checkout, order history and Implement a fully functional simulated payment system.
+### 🛒 Marketplace
+- Create, edit, hide, and delete product listings
+- Upload product images
+- Search products by keywords
+- Filter by category, price, and condition
+- Verified vendor badges
+- Product stock management
 
-Reviews: Buyers can rate and review sellers.
+### 💳 Shopping & Payments
+- Shopping cart and checkout
+- Simulated card and Instant EFT payments
+- Cash-on-collection option
+- Order history and order status tracking
+- Simulated refunds for cancelled paid orders
 
-Community: Bulletin board for announcements and events.
+**Note:** All electronic payments are simulated for demonstration and testing purposes. No real money is transferred.
 
-Verification: Admins can approve vendors and display verified badges.
+### ⭐ Ratings & Reviews
+- Seller ratings and written reviews
+- Reviews linked to purchases
+- Seller reputation information
 
-Security: Users can report suspicious listings, and admins can moderate content.
+### 📢 Community Bulletin Board
+- Community announcements
+- Local events
+- Administrator-pinned posts
 
-Admin Dashboard: Manage users, vendors, products, orders and reports.
+### 🛡️ Security & Moderation
+- Report suspicious product listings
+- Vendor verification
+- Administrator review of reports
+- User suspension and reinstatement
+- Role-based permissions
 
-Notifications: Order updates, payments and vendor approvals.
+### 📊 Admin Dashboard
+- User and vendor management
+- Vendor verification approvals
+- Product moderation
+- Order monitoring
+- Report management
+- Marketplace statistics
 
-Design: Modern, professional, attractive and responsive on phones and computers. Use a clean, student-friendly interface.
+### 🔔 Notifications
+- Order updates
+- Payment status updates
+- Vendor verification notifications
+- Reports and moderation updates
+- New message alerts
 
-IMPORTANT: Connect all features to Supabase, and ensure buttons, forms and pages function correctly. Test all major features and clearly identify anything requiring external credentials or manual configuration.
+## 🛠️ Technology Stack
 
-Build the application step by step, preserving completed functionality.
+| Technology | Purpose |
+|---|---|
+| Lovable | Application development |
+| Supabase | Backend services and database |
+| Web frontend | Responsive user interface |
+| Authentication services | User registration and login |
+| Cloud storage | Product and profile images |
+| GitHub | Version control and collaboration |
 
-This project was built with [Lovable](https://lovable.dev).
+*The exact frontend framework and dependencies can be confirmed in the repository's source files.*
 
-## Build with Lovable
+## 👥 Target Users
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/5ea697b8-ed0a-42f3-b0b6-9164d1fea11d).
+- **Students:** Buy and sell affordable textbooks, electronics, and other items.
+- **Faculty:** Access marketplace products and services.
+- **Residents:** Participate in local buying, selling, and community activities.
+- **Vendors:** Advertise products and manage sales.
+- **Administrators:** Manage users, verify vendors, and maintain platform safety.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+
+## 🧪 Testing
+
+Community Store uses simulated payment functionality for development and demonstrations.
+
+**Test card examples:**
+
+- Successful payment: `4242 4242 4242 4242`
+- Declined payment: A test card number ending in `0000`
+
+The application should also be tested for authentication, product management, checkout, role-based permissions, messaging, and administrative functionality.
+
+## 🔐 Privacy & Security
+
+Community Store is designed with secure authentication, role-based authorization, protected user data, and administrator moderation.
+
+The project aims to follow South Africa's Protection of Personal Information Act (POPIA) principles.
+
+Security and privacy compliance must be verified before public production deployment.
+
+
+## 📍 Project Scope
+
+The initial marketplace focuses on the District 6 campus and surrounding communities in Cape Town.
+
+Physical delivery and logistics are not managed by the application. Buyers and sellers arrange collection independently.
+
+## 🎓 Academic Project
+
+Developed as part of the **Project Management (PRM372S)** academic project at the **Cape Peninsula University of Technology (CPUT)**.
+
+### Project Team
+
+- Owenkosi Nxasana — Project Manager, Backend & Frontend Developer
+- Simphiwe Nkosi — Backend Developer
+- Pertunia Sifunda — Quality Assurance
+- Nomhle Njengele — Security Specialist
+- Thandeka Malande — Community Liaison
+
+## 📌 Project Status
+
+Community Store is under development and testing.
+
+The application includes marketplace functionality, user accounts, simulated checkout, vendor management, community features, and administrative tools.
+
+Additional features and integrations are being developed and validated.
+
+---
+
+**Community Store — Connecting Campus and Community.**
 
 ## Development
 
