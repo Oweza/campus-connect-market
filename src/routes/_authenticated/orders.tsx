@@ -9,7 +9,7 @@ import { PageHeader, EmptyState } from "@/components/shared";
 import { formatZAR, formatDateTime, statusLabel, errMsg } from "@/lib/format";
 
 export const Route = createFileRoute("/_authenticated/orders")({
-  validateSearch: (s: Record<string, unknown>) => ({ placed: typeof s.placed === "string" ? s.placed : undefined }),
+  validateSearch: (s: Record<string, unknown>): { placed?: string } => ({ placed: typeof s.placed === "string" ? s.placed : undefined }),
   head: () => ({ meta: [{ title: "My orders – Community Store" }, { name: "description", content: "Your order history and payment status." }] }),
   component: Orders,
 });
